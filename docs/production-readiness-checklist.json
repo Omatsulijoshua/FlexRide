@@ -1,0 +1,497 @@
+{
+  "project": "Flex Ride",
+  "purpose": "Tracks every major production requirement from the Flex Ride master prompt. The verifier reports PASS, PARTIAL, or MISSING based on repository evidence.",
+  "verificationRules": {
+    "PASS": "All automated checks for the item are satisfied.",
+    "PARTIAL": "Some automated checks are satisfied, or the feature has a scaffold but lacks full implementation evidence.",
+    "MISSING": "No meaningful implementation evidence was found."
+  },
+  "items": [
+    {
+      "id": "core.customer_app",
+      "category": "Core Architecture",
+      "requirement": "Customer mobile app exists and is Flutter-based.",
+      "checks": [
+        { "type": "pathExists", "path": "customer_app/pubspec.yaml" },
+        { "type": "textSearch", "path": "customer_app/pubspec.yaml", "pattern": "flutter:" }
+      ]
+    },
+    {
+      "id": "core.driver_app",
+      "category": "Core Architecture",
+      "requirement": "Driver mobile app exists and is Flutter-based.",
+      "checks": [
+        { "type": "pathExists", "path": "driver_app/pubspec.yaml" },
+        { "type": "textSearch", "path": "driver_app/pubspec.yaml", "pattern": "flutter:" }
+      ]
+    },
+    {
+      "id": "core.admin_dashboard",
+      "category": "Core Architecture",
+      "requirement": "Admin dashboard exists and is Next.js-based.",
+      "checks": [
+        { "type": "pathExists", "path": "admin-dashboard/package.json" },
+        { "type": "jsonDependency", "path": "admin-dashboard/package.json", "name": "next" }
+      ]
+    },
+    {
+      "id": "core.microservices",
+      "category": "Core Architecture",
+      "requirement": "Backend has the required service folders.",
+      "checks": [
+        { "type": "pathExists", "path": "backend/api-gateway" },
+        { "type": "pathExists", "path": "backend/auth-service" },
+        { "type": "pathExists", "path": "backend/user-service" },
+        { "type": "pathExists", "path": "backend/driver-service" },
+        { "type": "pathExists", "path": "backend/ride-service" },
+        { "type": "pathExists", "path": "backend/dispatch-service" },
+        { "type": "pathExists", "path": "backend/tracking-service" },
+        { "type": "pathExists", "path": "backend/payment-service" },
+        { "type": "pathExists", "path": "backend/notification-service" },
+        { "type": "pathExists", "path": "backend/interstate-service" },
+        { "type": "pathExists", "path": "backend/analytics-service" },
+        { "type": "pathExists", "path": "backend/fraud-service" }
+      ]
+    },
+    {
+      "id": "mobile.clean_architecture",
+      "category": "Mobile Architecture",
+      "requirement": "Flutter apps use clean architecture folders for features, data, domain, and presentation.",
+      "checks": [
+        { "type": "pathExists", "path": "customer_app/lib/features" },
+        { "type": "pathExists", "path": "driver_app/lib/features" },
+        { "type": "pathExists", "path": "customer_app/lib/core" },
+        { "type": "pathExists", "path": "driver_app/lib/core" }
+      ]
+    },
+    {
+      "id": "mobile.riverpod",
+      "category": "Mobile Architecture",
+      "requirement": "Flutter apps use Riverpod state management.",
+      "checks": [
+        { "type": "flutterDependency", "path": "customer_app/pubspec.yaml", "name": "flutter_riverpod" },
+        { "type": "flutterDependency", "path": "driver_app/pubspec.yaml", "name": "flutter_riverpod" }
+      ]
+    },
+    {
+      "id": "mobile.gorouter",
+      "category": "Mobile Architecture",
+      "requirement": "Flutter apps use GoRouter navigation.",
+      "checks": [
+        { "type": "flutterDependency", "path": "customer_app/pubspec.yaml", "name": "go_router" },
+        { "type": "flutterDependency", "path": "driver_app/pubspec.yaml", "name": "go_router" }
+      ]
+    },
+    {
+      "id": "mobile.dio",
+      "category": "Mobile Architecture",
+      "requirement": "Flutter apps use Dio networking.",
+      "checks": [
+        { "type": "flutterDependency", "path": "customer_app/pubspec.yaml", "name": "dio" },
+        { "type": "flutterDependency", "path": "driver_app/pubspec.yaml", "name": "dio" }
+      ]
+    },
+    {
+      "id": "mobile.dark_mode",
+      "category": "Mobile Architecture",
+      "requirement": "Flutter apps support dark/light mode.",
+      "checks": [
+        { "type": "textSearch", "path": "customer_app/lib/main.dart", "pattern": "darkTheme" },
+        { "type": "textSearch", "path": "driver_app/lib/main.dart", "pattern": "darkTheme" },
+        { "type": "textSearch", "path": "customer_app/flutter_native_splash.yaml", "pattern": "color_dark" },
+        { "type": "textSearch", "path": "driver_app/flutter_native_splash.yaml", "pattern": "color_dark" }
+      ]
+    },
+    {
+      "id": "auth.email_login",
+      "category": "Authentication",
+      "requirement": "Email login and registration work from mobile apps through backend.",
+      "checks": [
+        { "type": "pathExists", "path": "backend/auth-service/src/auth/auth.controller.ts" },
+        { "type": "pathExists", "path": "customer_app/lib/screens/auth/email_sign_in_screen.dart" },
+        { "type": "pathExists", "path": "driver_app/lib/screens/auth/email_sign_in_screen.dart" },
+        { "type": "textSearch", "path": "backend/auth-service/src/auth/auth.service.ts", "pattern": "login" }
+      ]
+    },
+    {
+      "id": "auth.phone_otp",
+      "category": "Authentication",
+      "requirement": "Phone OTP login and verification.",
+      "checks": [
+        { "type": "textSearch", "path": "backend/auth-service/src", "pattern": "otp" },
+        { "type": "textSearch", "path": "customer_app/lib", "pattern": "otp" },
+        { "type": "textSearch", "path": "driver_app/lib", "pattern": "otp" }
+      ]
+    },
+    {
+      "id": "auth.social_login",
+      "category": "Authentication",
+      "requirement": "Google, Apple, and Facebook login integrations.",
+      "checks": [
+        { "type": "textSearch", "path": "customer_app/lib", "pattern": "Google" },
+        { "type": "textSearch", "path": "customer_app/lib", "pattern": "Apple" },
+        { "type": "textSearch", "path": "customer_app/lib", "pattern": "Facebook" },
+        { "type": "textSearch", "path": "backend/auth-service/src", "pattern": "oauth" }
+      ]
+    },
+    {
+      "id": "auth.jwt_refresh_rbac",
+      "category": "Security",
+      "requirement": "JWT auth, refresh tokens, and RBAC authorization.",
+      "checks": [
+        { "type": "pathExists", "path": "backend/auth-service/src/auth/guards/jwt-auth.guard.ts" },
+        { "type": "textSearch", "path": "backend/auth-service/src", "pattern": "refresh" },
+        { "type": "textSearch", "path": "backend", "pattern": "RolesGuard" },
+        { "type": "textSearch", "path": "backend", "pattern": "role" }
+      ]
+    },
+    {
+      "id": "auth.real_database",
+      "category": "Backend Persistence",
+      "requirement": "Auth and user data persist in PostgreSQL, not in-memory arrays or maps.",
+      "checks": [
+        { "type": "textSearchAbsent", "path": "backend/auth-service/src", "pattern": "mockUsers" },
+        { "type": "textSearchAbsent", "path": "backend/user-service/src", "pattern": "new Map" },
+        { "type": "textSearch", "path": "backend/auth-service/src", "pattern": "Repository" }
+      ]
+    },
+    {
+      "id": "customer.profile",
+      "category": "Customer App",
+      "requirement": "Customer profile, photo, addresses, favorites, emergency contacts, and ride preferences.",
+      "checks": [
+        { "type": "textSearch", "path": "backend/user-service/src", "pattern": "profile" },
+        { "type": "textSearch", "path": "backend/user-service/src", "pattern": "address" },
+        { "type": "textSearch", "path": "backend/user-service/src", "pattern": "emergency" },
+        { "type": "textSearch", "path": "customer_app/lib", "pattern": "Favorite" },
+        { "type": "textSearch", "path": "customer_app/lib", "pattern": "preferences" }
+      ]
+    },
+    {
+      "id": "ride.now",
+      "category": "Ride Booking",
+      "requirement": "Instant ride booking.",
+      "checks": [
+        { "type": "pathExists", "path": "backend/ride-service/src/ride/controllers/ride.controller.ts" },
+        { "type": "textSearch", "path": "backend/ride-service/src", "pattern": "requestRide" },
+        { "type": "textSearch", "path": "customer_app/lib", "pattern": "Ride Now" }
+      ]
+    },
+    {
+      "id": "ride.schedule",
+      "category": "Ride Booking",
+      "requirement": "Scheduled ride booking.",
+      "checks": [
+        { "type": "pathExists", "path": "backend/ride-service/src/ride/controllers/schedule.controller.ts" },
+        { "type": "textSearch", "path": "backend/ride-service/src", "pattern": "scheduleRide" },
+        { "type": "textSearch", "path": "customer_app/lib", "pattern": "Schedule" }
+      ]
+    },
+    {
+      "id": "ride.advanced_booking",
+      "category": "Ride Booking",
+      "requirement": "Multi-stop, round trip, hourly rental, and ride pooling.",
+      "checks": [
+        { "type": "dbTable", "path": "backend/database/schema.sql", "name": "ride_stops" },
+        { "type": "textSearch", "path": "backend/ride-service/src", "pattern": "round" },
+        { "type": "textSearch", "path": "backend/ride-service/src", "pattern": "rental" },
+        { "type": "textSearch", "path": "backend/ride-service/src", "pattern": "pool" }
+      ]
+    },
+    {
+      "id": "ride.vehicle_types",
+      "category": "Ride Booking",
+      "requirement": "Vehicle categories: economy, bike, keke, sedan, SUV, luxury, courier, delivery van, truck.",
+      "checks": [
+        { "type": "textSearch", "path": "backend", "pattern": "economy" },
+        { "type": "textSearch", "path": "backend", "pattern": "keke" },
+        { "type": "textSearch", "path": "backend", "pattern": "luxury" },
+        { "type": "textSearch", "path": "backend", "pattern": "delivery" },
+        { "type": "textSearch", "path": "backend", "pattern": "truck" }
+      ]
+    },
+    {
+      "id": "maps.live_tracking",
+      "category": "Maps & Realtime",
+      "requirement": "Realtime GPS tracking and live driver movement.",
+      "checks": [
+        { "type": "pathExists", "path": "backend/tracking-service/src/tracking/gateways/tracking.gateway.ts" },
+        { "type": "pathExists", "path": "backend/tracking-service/src/tracking/services/redis-geo.service.ts" },
+        { "type": "textSearch", "path": "driver_app/lib", "pattern": "socket" },
+        { "type": "textSearch", "path": "customer_app/lib", "pattern": "map" }
+      ]
+    },
+    {
+      "id": "maps.google_maps",
+      "category": "Maps & Realtime",
+      "requirement": "Google Maps, ETA, route optimization, distance matrix, traffic, heat maps, and geofencing.",
+      "checks": [
+        { "type": "flutterDependency", "path": "customer_app/pubspec.yaml", "name": "google_maps_flutter" },
+        { "type": "flutterDependency", "path": "driver_app/pubspec.yaml", "name": "google_maps_flutter" },
+        { "type": "textSearch", "path": "backend", "pattern": "Distance Matrix" },
+        { "type": "textSearch", "path": "backend", "pattern": "geofence" },
+        { "type": "textSearch", "path": "backend", "pattern": "heat" }
+      ]
+    },
+    {
+      "id": "pricing.dynamic_surge_promo",
+      "category": "Pricing",
+      "requirement": "Dynamic pricing, surge pricing, zone pricing, and promo codes.",
+      "checks": [
+        { "type": "pathExists", "path": "backend/ride-service/src/ride/services/pricing.service.ts" },
+        { "type": "textSearch", "path": "backend/ride-service/src", "pattern": "surge" },
+        { "type": "dbTable", "path": "backend/database/schema.sql", "name": "promo_codes" },
+        { "type": "textSearch", "path": "admin-dashboard/src", "pattern": "promo" }
+      ]
+    },
+    {
+      "id": "payments.wallet",
+      "category": "Payments & Wallet",
+      "requirement": "Wallet funding, withdrawals, transactions, refunds, cashback, and rewards.",
+      "checks": [
+        { "type": "pathExists", "path": "backend/payment-service/src/payment/controllers/wallet.controller.ts" },
+        { "type": "pathExists", "path": "backend/payment-service/src/payment/services/wallet.service.ts" },
+        { "type": "dbTable", "path": "backend/database/schema.sql", "name": "wallets" },
+        { "type": "textSearch", "path": "backend/payment-service/src", "pattern": "withdraw" },
+        { "type": "textSearch", "path": "backend/payment-service/src", "pattern": "refund" }
+      ]
+    },
+    {
+      "id": "payments.gateways",
+      "category": "Payments & Wallet",
+      "requirement": "Paystack, Flutterwave, Monnify, OPay, bank transfer, card, USSD, Apple Pay, Google Pay, and cash.",
+      "checks": [
+        { "type": "textSearch", "path": "backend/payment-service/src", "pattern": "Paystack" },
+        { "type": "textSearch", "path": "backend/payment-service/src", "pattern": "Flutterwave" },
+        { "type": "textSearch", "path": "backend/payment-service/src", "pattern": "Monnify" },
+        { "type": "textSearch", "path": "backend/payment-service/src", "pattern": "OPay" },
+        { "type": "textSearch", "path": "backend/payment-service/src", "pattern": "USSD" }
+      ]
+    },
+    {
+      "id": "safety.sos_share_recording",
+      "category": "Safety",
+      "requirement": "SOS, trip sharing, emergency contacts, and optional trip audio recording.",
+      "checks": [
+        { "type": "dbTable", "path": "backend/database/schema.sql", "name": "sos_alerts" },
+        { "type": "textSearch", "path": "customer_app/lib", "pattern": "SOS" },
+        { "type": "textSearch", "path": "backend", "pattern": "trip share" },
+        { "type": "textSearch", "path": "backend", "pattern": "audio" }
+      ]
+    },
+    {
+      "id": "ratings",
+      "category": "Safety",
+      "requirement": "Rider and driver ratings and reviews.",
+      "checks": [
+        { "type": "dbTable", "path": "backend/database/schema.sql", "name": "ratings" },
+        { "type": "textSearch", "path": "backend", "pattern": "rating" },
+        { "type": "textSearch", "path": "customer_app/lib", "pattern": "rating" },
+        { "type": "textSearch", "path": "driver_app/lib", "pattern": "rating" }
+      ]
+    },
+    {
+      "id": "driver.registration_kyc",
+      "category": "Driver App",
+      "requirement": "Driver registration with NIN, BVN, license, vehicle documents, facial verification, and background check.",
+      "checks": [
+        { "type": "pathExists", "path": "backend/driver-service/src/driver/controllers/driver-kyc.controller.ts" },
+        { "type": "textSearch", "path": "backend/driver-service/src", "pattern": "NIN" },
+        { "type": "textSearch", "path": "backend/driver-service/src", "pattern": "BVN" },
+        { "type": "textSearch", "path": "backend/driver-service/src", "pattern": "license" },
+        { "type": "textSearch", "path": "backend/driver-service/src", "pattern": "facial" }
+      ]
+    },
+    {
+      "id": "driver.dashboard",
+      "category": "Driver App",
+      "requirement": "Driver dashboard: online/offline, ride requests, accept/reject, earnings, incentives, wallet, destination filter.",
+      "checks": [
+        { "type": "textSearch", "path": "driver_app/lib", "pattern": "online" },
+        { "type": "textSearch", "path": "driver_app/lib", "pattern": "new_ride_request" },
+        { "type": "textSearch", "path": "driver_app/lib", "pattern": "earnings" },
+        { "type": "textSearch", "path": "driver_app/lib", "pattern": "wallet" },
+        { "type": "textSearch", "path": "driver_app/lib", "pattern": "destination" }
+      ]
+    },
+    {
+      "id": "driver.advanced_tools",
+      "category": "Driver App",
+      "requirement": "Smart queue, heat zones, Waze/Google navigation, scheduled ride acceptance, levels, bonuses, referrals.",
+      "checks": [
+        { "type": "textSearch", "path": "backend/dispatch-service/src", "pattern": "queue" },
+        { "type": "textSearch", "path": "backend", "pattern": "heat" },
+        { "type": "textSearch", "path": "driver_app/lib", "pattern": "Waze" },
+        { "type": "textSearch", "path": "driver_app/lib", "pattern": "referral" },
+        { "type": "textSearch", "path": "driver_app/lib", "pattern": "bonus" }
+      ]
+    },
+    {
+      "id": "admin.live_ops",
+      "category": "Admin Dashboard",
+      "requirement": "Live operations panel with live map, active rides, drivers, riders, monitoring, cancel, reassign, ban.",
+      "checks": [
+        { "type": "pathExists", "path": "admin-dashboard/src/app/(dashboard)/live-operations/page.tsx" },
+        { "type": "textSearch", "path": "admin-dashboard/src", "pattern": "Live" },
+        { "type": "textSearch", "path": "admin-dashboard/src", "pattern": "cancel" },
+        { "type": "textSearch", "path": "admin-dashboard/src", "pattern": "reassign" },
+        { "type": "textSearch", "path": "admin-dashboard/src", "pattern": "ban" }
+      ]
+    },
+    {
+      "id": "admin.finance",
+      "category": "Admin Dashboard",
+      "requirement": "Finance dashboard: revenue, commission, driver payouts, withdrawals, refunds, tax.",
+      "checks": [
+        { "type": "pathExists", "path": "admin-dashboard/src/app/(dashboard)/finance/page.tsx" },
+        { "type": "textSearch", "path": "admin-dashboard/src", "pattern": "revenue" },
+        { "type": "textSearch", "path": "admin-dashboard/src", "pattern": "commission" },
+        { "type": "textSearch", "path": "admin-dashboard/src", "pattern": "payout" },
+        { "type": "textSearch", "path": "admin-dashboard/src", "pattern": "refund" }
+      ]
+    },
+    {
+      "id": "admin.kyc_support",
+      "category": "Admin Dashboard",
+      "requirement": "KYC approval, support ticketing, live support chat, disputes, call center panel.",
+      "checks": [
+        { "type": "pathExists", "path": "admin-dashboard/src/app/(dashboard)/kyc/page.tsx" },
+        { "type": "dbTable", "path": "backend/database/schema.sql", "name": "support_tickets" },
+        { "type": "textSearch", "path": "admin-dashboard/src", "pattern": "dispute" },
+        { "type": "textSearch", "path": "backend/notification-service/src", "pattern": "chat" }
+      ]
+    },
+    {
+      "id": "travel.interstate",
+      "category": "Inter-State Travel",
+      "requirement": "Inter-state travel: shared/private travel, seat selection, luggage pricing, boarding points, route management, scheduled departures.",
+      "checks": [
+        { "type": "pathExists", "path": "backend/interstate-service/src/interstate/controllers/trip.controller.ts" },
+        { "type": "dbTable", "path": "backend/database/schema.sql", "name": "inter_state_routes" },
+        { "type": "dbTable", "path": "backend/database/schema.sql", "name": "travel_bookings" },
+        { "type": "textSearch", "path": "backend/interstate-service/src", "pattern": "seat" },
+        { "type": "textSearch", "path": "backend/interstate-service/src", "pattern": "luggage" }
+      ]
+    },
+    {
+      "id": "marketplace.bidding",
+      "category": "Driver Marketplace",
+      "requirement": "Customers can request nearby drivers and drivers can bid/offer negotiated pricing.",
+      "checks": [
+        { "type": "dbTable", "path": "backend/database/schema.sql", "name": "ride_bids" },
+        { "type": "textSearch", "path": "backend", "pattern": "bid" },
+        { "type": "textSearch", "path": "customer_app/lib", "pattern": "driver marketplace" },
+        { "type": "textSearch", "path": "driver_app/lib", "pattern": "bid" }
+      ]
+    },
+    {
+      "id": "realtime.socket_redis",
+      "category": "Realtime",
+      "requirement": "Socket.IO realtime system with Redis Pub/Sub for tracking, chat, ride status, and notifications.",
+      "checks": [
+        { "type": "textSearch", "path": "backend", "pattern": "Socket" },
+        { "type": "textSearch", "path": "backend", "pattern": "Redis" },
+        { "type": "textSearch", "path": "backend", "pattern": "pub" },
+        { "type": "textSearch", "path": "backend/notification-service/src", "pattern": "chat" }
+      ]
+    },
+    {
+      "id": "ai.dispatch",
+      "category": "AI Systems",
+      "requirement": "AI dispatch matches nearest, best-rated, lowest ETA, lowest cancellation risk drivers.",
+      "checks": [
+        { "type": "pathExists", "path": "backend/dispatch-service/src/dispatch/services/ai-matching.service.ts" },
+        { "type": "textSearch", "path": "backend/dispatch-service/src", "pattern": "rating" },
+        { "type": "textSearch", "path": "backend/dispatch-service/src", "pattern": "distance" },
+        { "type": "textSearch", "path": "backend/dispatch-service/src", "pattern": "ETA" },
+        { "type": "textSearch", "path": "backend/dispatch-service/src", "pattern": "cancellation" }
+      ]
+    },
+    {
+      "id": "ai.surge_fraud_prediction",
+      "category": "AI Systems",
+      "requirement": "AI surge pricing, demand prediction, fraud detection, GPS spoofing detection, wallet fraud detection.",
+      "checks": [
+        { "type": "pathExists", "path": "backend/fraud-service/src/fraud/services/trip-analysis.service.ts" },
+        { "type": "textSearch", "path": "backend/analytics-service/src", "pattern": "prediction" },
+        { "type": "textSearch", "path": "backend/fraud-service/src", "pattern": "spoof" },
+        { "type": "textSearch", "path": "backend/fraud-service/src", "pattern": "wallet" },
+        { "type": "textSearch", "path": "backend/ride-service/src", "pattern": "weather" }
+      ]
+    },
+    {
+      "id": "database.complete_schema",
+      "category": "Database",
+      "requirement": "PostgreSQL schema includes all required production tables, indexes, foreign keys, and constraints.",
+      "checks": [
+        { "type": "dbTable", "path": "backend/database/schema.sql", "name": "users" },
+        { "type": "dbTable", "path": "backend/database/schema.sql", "name": "drivers" },
+        { "type": "dbTable", "path": "backend/database/schema.sql", "name": "vehicles" },
+        { "type": "dbTable", "path": "backend/database/schema.sql", "name": "rides" },
+        { "type": "dbTable", "path": "backend/database/schema.sql", "name": "ride_stops" },
+        { "type": "dbTable", "path": "backend/database/schema.sql", "name": "scheduled_rides" },
+        { "type": "dbTable", "path": "backend/database/schema.sql", "name": "wallets" },
+        { "type": "dbTable", "path": "backend/database/schema.sql", "name": "wallet_transactions" },
+        { "type": "dbTable", "path": "backend/database/schema.sql", "name": "payments" },
+        { "type": "dbTable", "path": "backend/database/schema.sql", "name": "driver_documents" },
+        { "type": "dbTable", "path": "backend/database/schema.sql", "name": "ratings" },
+        { "type": "dbTable", "path": "backend/database/schema.sql", "name": "notifications" },
+        { "type": "dbTable", "path": "backend/database/schema.sql", "name": "support_tickets" },
+        { "type": "dbTable", "path": "backend/database/schema.sql", "name": "admin_users" },
+        { "type": "dbTable", "path": "backend/database/schema.sql", "name": "promo_codes" },
+        { "type": "dbTable", "path": "backend/database/schema.sql", "name": "inter_state_routes" },
+        { "type": "dbTable", "path": "backend/database/schema.sql", "name": "travel_bookings" },
+        { "type": "dbTable", "path": "backend/database/schema.sql", "name": "ride_bids" }
+      ]
+    },
+    {
+      "id": "api.swagger_validation",
+      "category": "API",
+      "requirement": "REST APIs are versioned, documented with Swagger, validated with DTOs, and have structured error handling.",
+      "checks": [
+        { "type": "textSearch", "path": "backend", "pattern": "SwaggerModule" },
+        { "type": "textSearch", "path": "backend", "pattern": "ValidationPipe" },
+        { "type": "textSearch", "path": "backend", "pattern": "/v1" },
+        { "type": "textSearch", "path": "backend", "pattern": "ExceptionFilter" }
+      ]
+    },
+    {
+      "id": "devops.docker",
+      "category": "DevOps",
+      "requirement": "Docker Compose runs core services with Postgres and Redis.",
+      "checks": [
+        { "type": "pathExists", "path": "backend/docker-compose.yml" },
+        { "type": "dockerService", "path": "backend/docker-compose.yml", "name": "postgres" },
+        { "type": "dockerService", "path": "backend/docker-compose.yml", "name": "redis" },
+        { "type": "dockerService", "path": "backend/docker-compose.yml", "name": "auth-service" },
+        { "type": "dockerService", "path": "backend/docker-compose.yml", "name": "ride-service" }
+      ]
+    },
+    {
+      "id": "devops.k8s_ci_monitoring",
+      "category": "DevOps",
+      "requirement": "Kubernetes, NGINX, GitHub Actions, autoscaling, monitoring, logging, backups.",
+      "checks": [
+        { "type": "pathExists", "path": "k8s" },
+        { "type": "pathExists", "path": ".github/workflows" },
+        { "type": "textSearch", "path": ".", "pattern": "nginx" },
+        { "type": "textSearch", "path": ".", "pattern": "prometheus" },
+        { "type": "textSearch", "path": ".", "pattern": "grafana" },
+        { "type": "textSearch", "path": ".", "pattern": "backup" }
+      ]
+    },
+    {
+      "id": "testing.full_suite",
+      "category": "Testing",
+      "requirement": "Unit, integration, E2E, API, and load tests exist.",
+      "checks": [
+        { "type": "pathExists", "path": "customer_app/test" },
+        { "type": "pathExists", "path": "driver_app/test" },
+        { "type": "textSearch", "path": "backend", "pattern": ".spec.ts" },
+        { "type": "textSearch", "path": ".", "pattern": "supertest" },
+        { "type": "textSearch", "path": ".", "pattern": "cypress" },
+        { "type": "textSearch", "path": ".", "pattern": "k6" }
+      ]
+    }
+  ]
+}

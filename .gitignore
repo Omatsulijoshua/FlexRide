@@ -1,0 +1,52 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# JavaScript / TypeScript builds
+dist/
+build/
+.next/
+out/
+coverage/
+
+# Flutter / Dart
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+pubspec.lock.old
+**/android/.gradle/
+**/android/app/build/
+**/ios/Flutter/Flutter.framework
+**/ios/Flutter/Flutter.podspec
+**/ios/Pods/
+**/ios/.symlinks/
+**/linux/flutter/ephemeral/
+**/macos/Flutter/ephemeral/
+**/windows/flutter/ephemeral/
+
+# Native/mobile build outputs
+*.apk
+*.aab
+*.ipa
+*.app
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Logs and local reports
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+reports/*.log
+reports/tmp-*.json
+reports/local-git-backups/
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

@@ -1,0 +1,161 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: flexride_admin
+      POSTGRES_PASSWORD: super_secret_password
+      POSTGRES_DB: flexride_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+    networks:
+      - flexride_net
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    networks:
+      - flexride_net
+
+  api-gateway:
+    build:
+      context: ./api-gateway
+      dockerfile: ../Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - flexride_net
+
+  auth-service:
+    build:
+      context: ./auth-service
+      dockerfile: ../Dockerfile
+    ports:
+      - "3001:3001"
+    depends_on:
+      - postgres
+    networks:
+      - flexride_net
+
+  user-service:
+    build:
+      context: ./user-service
+      dockerfile: ../Dockerfile
+    ports:
+      - "3002:3002"
+    depends_on:
+      - postgres
+    networks:
+      - flexride_net
+
+  driver-service:
+    build:
+      context: ./driver-service
+      dockerfile: ../Dockerfile
+    ports:
+      - "3003:3003"
+    depends_on:
+      - postgres
+    networks:
+      - flexride_net
+
+  ride-service:
+    build:
+      context: ./ride-service
+      dockerfile: ../Dockerfile
+    ports:
+      - "3004:3004"
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - flexride_net
+
+  tracking-service:
+    build:
+      context: ./tracking-service
+      dockerfile: ../Dockerfile
+    ports:
+      - "3005:3005"
+    depends_on:
+      - redis
+    networks:
+      - flexride_net
+
+  payment-service:
+    build:
+      context: ./payment-service
+      dockerfile: ../Dockerfile
+    ports:
+      - "3006:3006"
+    depends_on:
+      - postgres
+    networks:
+      - flexride_net
+
+  dispatch-service:
+    build:
+      context: ./dispatch-service
+      dockerfile: ../Dockerfile
+    ports:
+      - "3007:3007"
+    depends_on:
+      - redis
+    networks:
+      - flexride_net
+
+  interstate-service:
+    build:
+      context: ./interstate-service
+      dockerfile: ../Dockerfile
+    ports:
+      - "3008:3008"
+    depends_on:
+      - postgres
+    networks:
+      - flexride_net
+
+  notification-service:
+    build:
+      context: ./notification-service
+      dockerfile: ../Dockerfile
+    ports:
+      - "3009:3009"
+      - "3010:3010"
+    networks:
+      - flexride_net
+
+  analytics-service:
+    build:
+      context: ./analytics-service
+      dockerfile: ../Dockerfile
+    ports:
+      - "3011:3011"
+    depends_on:
+      - postgres
+    networks:
+      - flexride_net
+
+  fraud-service:
+    build:
+      context: ./fraud-service
+      dockerfile: ../Dockerfile
+    ports:
+      - "3012:3012"
+    networks:
+      - flexride_net
+
+networks:
+  flexride_net:
+    driver: bridge
+
+volumes:
+  pgdata:

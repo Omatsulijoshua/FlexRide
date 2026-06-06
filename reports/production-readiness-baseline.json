@@ -1,0 +1,1774 @@
+﻿{
+    "project":  "Flex Ride",
+    "generatedAt":  "2026-06-01T00:18:36",
+    "total":  42,
+    "pass":  13,
+    "partial":  23,
+    "missing":  6,
+    "results":  [
+                    {
+                        "id":  "core.customer_app",
+                        "category":  "Core Architecture",
+                        "requirement":  "Customer mobile app exists and is Flutter-based.",
+                        "status":  "PASS",
+                        "passedChecks":  2,
+                        "totalChecks":  2,
+                        "checks":  [
+                                       {
+                                           "type":  "pathExists",
+                                           "path":  "customer_app/pubspec.yaml",
+                                           "pattern":  null,
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "customer_app/pubspec.yaml",
+                                           "pattern":  "flutter:",
+                                           "name":  null,
+                                           "passed":  true
+                                       }
+                                   ]
+                    },
+                    {
+                        "id":  "core.driver_app",
+                        "category":  "Core Architecture",
+                        "requirement":  "Driver mobile app exists and is Flutter-based.",
+                        "status":  "PASS",
+                        "passedChecks":  2,
+                        "totalChecks":  2,
+                        "checks":  [
+                                       {
+                                           "type":  "pathExists",
+                                           "path":  "driver_app/pubspec.yaml",
+                                           "pattern":  null,
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "driver_app/pubspec.yaml",
+                                           "pattern":  "flutter:",
+                                           "name":  null,
+                                           "passed":  true
+                                       }
+                                   ]
+                    },
+                    {
+                        "id":  "core.admin_dashboard",
+                        "category":  "Core Architecture",
+                        "requirement":  "Admin dashboard exists and is Next.js-based.",
+                        "status":  "PASS",
+                        "passedChecks":  2,
+                        "totalChecks":  2,
+                        "checks":  [
+                                       {
+                                           "type":  "pathExists",
+                                           "path":  "admin-dashboard/package.json",
+                                           "pattern":  null,
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "jsonDependency",
+                                           "path":  "admin-dashboard/package.json",
+                                           "pattern":  null,
+                                           "name":  "next",
+                                           "passed":  true
+                                       }
+                                   ]
+                    },
+                    {
+                        "id":  "core.microservices",
+                        "category":  "Core Architecture",
+                        "requirement":  "Backend has the required service folders.",
+                        "status":  "PASS",
+                        "passedChecks":  12,
+                        "totalChecks":  12,
+                        "checks":  [
+                                       {
+                                           "type":  "pathExists",
+                                           "path":  "backend/api-gateway",
+                                           "pattern":  null,
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "pathExists",
+                                           "path":  "backend/auth-service",
+                                           "pattern":  null,
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "pathExists",
+                                           "path":  "backend/user-service",
+                                           "pattern":  null,
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "pathExists",
+                                           "path":  "backend/driver-service",
+                                           "pattern":  null,
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "pathExists",
+                                           "path":  "backend/ride-service",
+                                           "pattern":  null,
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "pathExists",
+                                           "path":  "backend/dispatch-service",
+                                           "pattern":  null,
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "pathExists",
+                                           "path":  "backend/tracking-service",
+                                           "pattern":  null,
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "pathExists",
+                                           "path":  "backend/payment-service",
+                                           "pattern":  null,
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "pathExists",
+                                           "path":  "backend/notification-service",
+                                           "pattern":  null,
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "pathExists",
+                                           "path":  "backend/interstate-service",
+                                           "pattern":  null,
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "pathExists",
+                                           "path":  "backend/analytics-service",
+                                           "pattern":  null,
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "pathExists",
+                                           "path":  "backend/fraud-service",
+                                           "pattern":  null,
+                                           "name":  null,
+                                           "passed":  true
+                                       }
+                                   ]
+                    },
+                    {
+                        "id":  "mobile.clean_architecture",
+                        "category":  "Mobile Architecture",
+                        "requirement":  "Flutter apps use clean architecture folders for features, data, domain, and presentation.",
+                        "status":  "MISSING",
+                        "passedChecks":  0,
+                        "totalChecks":  4,
+                        "checks":  [
+                                       {
+                                           "type":  "pathExists",
+                                           "path":  "customer_app/lib/features",
+                                           "pattern":  null,
+                                           "name":  null,
+                                           "passed":  false
+                                       },
+                                       {
+                                           "type":  "pathExists",
+                                           "path":  "driver_app/lib/features",
+                                           "pattern":  null,
+                                           "name":  null,
+                                           "passed":  false
+                                       },
+                                       {
+                                           "type":  "pathExists",
+                                           "path":  "customer_app/lib/core",
+                                           "pattern":  null,
+                                           "name":  null,
+                                           "passed":  false
+                                       },
+                                       {
+                                           "type":  "pathExists",
+                                           "path":  "driver_app/lib/core",
+                                           "pattern":  null,
+                                           "name":  null,
+                                           "passed":  false
+                                       }
+                                   ]
+                    },
+                    {
+                        "id":  "mobile.riverpod",
+                        "category":  "Mobile Architecture",
+                        "requirement":  "Flutter apps use Riverpod state management.",
+                        "status":  "MISSING",
+                        "passedChecks":  0,
+                        "totalChecks":  2,
+                        "checks":  [
+                                       {
+                                           "type":  "flutterDependency",
+                                           "path":  "customer_app/pubspec.yaml",
+                                           "pattern":  null,
+                                           "name":  "flutter_riverpod",
+                                           "passed":  false
+                                       },
+                                       {
+                                           "type":  "flutterDependency",
+                                           "path":  "driver_app/pubspec.yaml",
+                                           "pattern":  null,
+                                           "name":  "flutter_riverpod",
+                                           "passed":  false
+                                       }
+                                   ]
+                    },
+                    {
+                        "id":  "mobile.gorouter",
+                        "category":  "Mobile Architecture",
+                        "requirement":  "Flutter apps use GoRouter navigation.",
+                        "status":  "MISSING",
+                        "passedChecks":  0,
+                        "totalChecks":  2,
+                        "checks":  [
+                                       {
+                                           "type":  "flutterDependency",
+                                           "path":  "customer_app/pubspec.yaml",
+                                           "pattern":  null,
+                                           "name":  "go_router",
+                                           "passed":  false
+                                       },
+                                       {
+                                           "type":  "flutterDependency",
+                                           "path":  "driver_app/pubspec.yaml",
+                                           "pattern":  null,
+                                           "name":  "go_router",
+                                           "passed":  false
+                                       }
+                                   ]
+                    },
+                    {
+                        "id":  "mobile.dio",
+                        "category":  "Mobile Architecture",
+                        "requirement":  "Flutter apps use Dio networking.",
+                        "status":  "PASS",
+                        "passedChecks":  2,
+                        "totalChecks":  2,
+                        "checks":  [
+                                       {
+                                           "type":  "flutterDependency",
+                                           "path":  "customer_app/pubspec.yaml",
+                                           "pattern":  null,
+                                           "name":  "dio",
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "flutterDependency",
+                                           "path":  "driver_app/pubspec.yaml",
+                                           "pattern":  null,
+                                           "name":  "dio",
+                                           "passed":  true
+                                       }
+                                   ]
+                    },
+                    {
+                        "id":  "mobile.dark_mode",
+                        "category":  "Mobile Architecture",
+                        "requirement":  "Flutter apps support dark/light mode.",
+                        "status":  "PASS",
+                        "passedChecks":  4,
+                        "totalChecks":  4,
+                        "checks":  [
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "customer_app/lib/main.dart",
+                                           "pattern":  "darkTheme",
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "driver_app/lib/main.dart",
+                                           "pattern":  "darkTheme",
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "customer_app/flutter_native_splash.yaml",
+                                           "pattern":  "color_dark",
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "driver_app/flutter_native_splash.yaml",
+                                           "pattern":  "color_dark",
+                                           "name":  null,
+                                           "passed":  true
+                                       }
+                                   ]
+                    },
+                    {
+                        "id":  "auth.email_login",
+                        "category":  "Authentication",
+                        "requirement":  "Email login and registration work from mobile apps through backend.",
+                        "status":  "PASS",
+                        "passedChecks":  4,
+                        "totalChecks":  4,
+                        "checks":  [
+                                       {
+                                           "type":  "pathExists",
+                                           "path":  "backend/auth-service/src/auth/auth.controller.ts",
+                                           "pattern":  null,
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "pathExists",
+                                           "path":  "customer_app/lib/screens/auth/email_sign_in_screen.dart",
+                                           "pattern":  null,
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "pathExists",
+                                           "path":  "driver_app/lib/screens/auth/email_sign_in_screen.dart",
+                                           "pattern":  null,
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend/auth-service/src/auth/auth.service.ts",
+                                           "pattern":  "login",
+                                           "name":  null,
+                                           "passed":  true
+                                       }
+                                   ]
+                    },
+                    {
+                        "id":  "auth.phone_otp",
+                        "category":  "Authentication",
+                        "requirement":  "Phone OTP login and verification.",
+                        "status":  "MISSING",
+                        "passedChecks":  0,
+                        "totalChecks":  3,
+                        "checks":  [
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend/auth-service/src",
+                                           "pattern":  "otp",
+                                           "name":  null,
+                                           "passed":  false
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "customer_app/lib",
+                                           "pattern":  "otp",
+                                           "name":  null,
+                                           "passed":  false
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "driver_app/lib",
+                                           "pattern":  "otp",
+                                           "name":  null,
+                                           "passed":  false
+                                       }
+                                   ]
+                    },
+                    {
+                        "id":  "auth.social_login",
+                        "category":  "Authentication",
+                        "requirement":  "Google, Apple, and Facebook login integrations.",
+                        "status":  "PARTIAL",
+                        "passedChecks":  2,
+                        "totalChecks":  4,
+                        "checks":  [
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "customer_app/lib",
+                                           "pattern":  "Google",
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "customer_app/lib",
+                                           "pattern":  "Apple",
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "customer_app/lib",
+                                           "pattern":  "Facebook",
+                                           "name":  null,
+                                           "passed":  false
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend/auth-service/src",
+                                           "pattern":  "oauth",
+                                           "name":  null,
+                                           "passed":  false
+                                       }
+                                   ]
+                    },
+                    {
+                        "id":  "auth.jwt_refresh_rbac",
+                        "category":  "Security",
+                        "requirement":  "JWT auth, refresh tokens, and RBAC authorization.",
+                        "status":  "PARTIAL",
+                        "passedChecks":  2,
+                        "totalChecks":  4,
+                        "checks":  [
+                                       {
+                                           "type":  "pathExists",
+                                           "path":  "backend/auth-service/src/auth/guards/jwt-auth.guard.ts",
+                                           "pattern":  null,
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend/auth-service/src",
+                                           "pattern":  "refresh",
+                                           "name":  null,
+                                           "passed":  false
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend",
+                                           "pattern":  "RolesGuard",
+                                           "name":  null,
+                                           "passed":  false
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend",
+                                           "pattern":  "role",
+                                           "name":  null,
+                                           "passed":  true
+                                       }
+                                   ]
+                    },
+                    {
+                        "id":  "auth.real_database",
+                        "category":  "Backend Persistence",
+                        "requirement":  "Auth and user data persist in PostgreSQL, not in-memory arrays or maps.",
+                        "status":  "MISSING",
+                        "passedChecks":  0,
+                        "totalChecks":  3,
+                        "checks":  [
+                                       {
+                                           "type":  "textSearchAbsent",
+                                           "path":  "backend/auth-service/src",
+                                           "pattern":  "mockUsers",
+                                           "name":  null,
+                                           "passed":  false
+                                       },
+                                       {
+                                           "type":  "textSearchAbsent",
+                                           "path":  "backend/user-service/src",
+                                           "pattern":  "new Map",
+                                           "name":  null,
+                                           "passed":  false
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend/auth-service/src",
+                                           "pattern":  "Repository",
+                                           "name":  null,
+                                           "passed":  false
+                                       }
+                                   ]
+                    },
+                    {
+                        "id":  "customer.profile",
+                        "category":  "Customer App",
+                        "requirement":  "Customer profile, photo, addresses, favorites, emergency contacts, and ride preferences.",
+                        "status":  "PARTIAL",
+                        "passedChecks":  4,
+                        "totalChecks":  5,
+                        "checks":  [
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend/user-service/src",
+                                           "pattern":  "profile",
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend/user-service/src",
+                                           "pattern":  "address",
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend/user-service/src",
+                                           "pattern":  "emergency",
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "customer_app/lib",
+                                           "pattern":  "Favorite",
+                                           "name":  null,
+                                           "passed":  false
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "customer_app/lib",
+                                           "pattern":  "preferences",
+                                           "name":  null,
+                                           "passed":  true
+                                       }
+                                   ]
+                    },
+                    {
+                        "id":  "ride.now",
+                        "category":  "Ride Booking",
+                        "requirement":  "Instant ride booking.",
+                        "status":  "PASS",
+                        "passedChecks":  3,
+                        "totalChecks":  3,
+                        "checks":  [
+                                       {
+                                           "type":  "pathExists",
+                                           "path":  "backend/ride-service/src/ride/controllers/ride.controller.ts",
+                                           "pattern":  null,
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend/ride-service/src",
+                                           "pattern":  "requestRide",
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "customer_app/lib",
+                                           "pattern":  "Ride Now",
+                                           "name":  null,
+                                           "passed":  true
+                                       }
+                                   ]
+                    },
+                    {
+                        "id":  "ride.schedule",
+                        "category":  "Ride Booking",
+                        "requirement":  "Scheduled ride booking.",
+                        "status":  "PASS",
+                        "passedChecks":  3,
+                        "totalChecks":  3,
+                        "checks":  [
+                                       {
+                                           "type":  "pathExists",
+                                           "path":  "backend/ride-service/src/ride/controllers/schedule.controller.ts",
+                                           "pattern":  null,
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend/ride-service/src",
+                                           "pattern":  "scheduleRide",
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "customer_app/lib",
+                                           "pattern":  "Schedule",
+                                           "name":  null,
+                                           "passed":  true
+                                       }
+                                   ]
+                    },
+                    {
+                        "id":  "ride.advanced_booking",
+                        "category":  "Ride Booking",
+                        "requirement":  "Multi-stop, round trip, hourly rental, and ride pooling.",
+                        "status":  "PARTIAL",
+                        "passedChecks":  1,
+                        "totalChecks":  4,
+                        "checks":  [
+                                       {
+                                           "type":  "dbTable",
+                                           "path":  "backend/database/schema.sql",
+                                           "pattern":  null,
+                                           "name":  "ride_stops",
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend/ride-service/src",
+                                           "pattern":  "round",
+                                           "name":  null,
+                                           "passed":  false
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend/ride-service/src",
+                                           "pattern":  "rental",
+                                           "name":  null,
+                                           "passed":  false
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend/ride-service/src",
+                                           "pattern":  "pool",
+                                           "name":  null,
+                                           "passed":  false
+                                       }
+                                   ]
+                    },
+                    {
+                        "id":  "ride.vehicle_types",
+                        "category":  "Ride Booking",
+                        "requirement":  "Vehicle categories: economy, bike, keke, sedan, SUV, luxury, courier, delivery van, truck.",
+                        "status":  "MISSING",
+                        "passedChecks":  0,
+                        "totalChecks":  5,
+                        "checks":  [
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend",
+                                           "pattern":  "economy",
+                                           "name":  null,
+                                           "passed":  false
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend",
+                                           "pattern":  "keke",
+                                           "name":  null,
+                                           "passed":  false
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend",
+                                           "pattern":  "luxury",
+                                           "name":  null,
+                                           "passed":  false
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend",
+                                           "pattern":  "delivery",
+                                           "name":  null,
+                                           "passed":  false
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend",
+                                           "pattern":  "truck",
+                                           "name":  null,
+                                           "passed":  false
+                                       }
+                                   ]
+                    },
+                    {
+                        "id":  "maps.live_tracking",
+                        "category":  "Maps \u0026 Realtime",
+                        "requirement":  "Realtime GPS tracking and live driver movement.",
+                        "status":  "PASS",
+                        "passedChecks":  4,
+                        "totalChecks":  4,
+                        "checks":  [
+                                       {
+                                           "type":  "pathExists",
+                                           "path":  "backend/tracking-service/src/tracking/gateways/tracking.gateway.ts",
+                                           "pattern":  null,
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "pathExists",
+                                           "path":  "backend/tracking-service/src/tracking/services/redis-geo.service.ts",
+                                           "pattern":  null,
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "driver_app/lib",
+                                           "pattern":  "socket",
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "customer_app/lib",
+                                           "pattern":  "map",
+                                           "name":  null,
+                                           "passed":  true
+                                       }
+                                   ]
+                    },
+                    {
+                        "id":  "maps.google_maps",
+                        "category":  "Maps \u0026 Realtime",
+                        "requirement":  "Google Maps, ETA, route optimization, distance matrix, traffic, heat maps, and geofencing.",
+                        "status":  "PARTIAL",
+                        "passedChecks":  1,
+                        "totalChecks":  5,
+                        "checks":  [
+                                       {
+                                           "type":  "flutterDependency",
+                                           "path":  "customer_app/pubspec.yaml",
+                                           "pattern":  null,
+                                           "name":  "google_maps_flutter",
+                                           "passed":  false
+                                       },
+                                       {
+                                           "type":  "flutterDependency",
+                                           "path":  "driver_app/pubspec.yaml",
+                                           "pattern":  null,
+                                           "name":  "google_maps_flutter",
+                                           "passed":  false
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend",
+                                           "pattern":  "Distance Matrix",
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend",
+                                           "pattern":  "geofence",
+                                           "name":  null,
+                                           "passed":  false
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend",
+                                           "pattern":  "heat",
+                                           "name":  null,
+                                           "passed":  false
+                                       }
+                                   ]
+                    },
+                    {
+                        "id":  "pricing.dynamic_surge_promo",
+                        "category":  "Pricing",
+                        "requirement":  "Dynamic pricing, surge pricing, zone pricing, and promo codes.",
+                        "status":  "PARTIAL",
+                        "passedChecks":  3,
+                        "totalChecks":  4,
+                        "checks":  [
+                                       {
+                                           "type":  "pathExists",
+                                           "path":  "backend/ride-service/src/ride/services/pricing.service.ts",
+                                           "pattern":  null,
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend/ride-service/src",
+                                           "pattern":  "surge",
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "dbTable",
+                                           "path":  "backend/database/schema.sql",
+                                           "pattern":  null,
+                                           "name":  "promo_codes",
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "admin-dashboard/src",
+                                           "pattern":  "promo",
+                                           "name":  null,
+                                           "passed":  false
+                                       }
+                                   ]
+                    },
+                    {
+                        "id":  "payments.wallet",
+                        "category":  "Payments \u0026 Wallet",
+                        "requirement":  "Wallet funding, withdrawals, transactions, refunds, cashback, and rewards.",
+                        "status":  "PARTIAL",
+                        "passedChecks":  3,
+                        "totalChecks":  5,
+                        "checks":  [
+                                       {
+                                           "type":  "pathExists",
+                                           "path":  "backend/payment-service/src/payment/controllers/wallet.controller.ts",
+                                           "pattern":  null,
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "pathExists",
+                                           "path":  "backend/payment-service/src/payment/services/wallet.service.ts",
+                                           "pattern":  null,
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "dbTable",
+                                           "path":  "backend/database/schema.sql",
+                                           "pattern":  null,
+                                           "name":  "wallets",
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend/payment-service/src",
+                                           "pattern":  "withdraw",
+                                           "name":  null,
+                                           "passed":  false
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend/payment-service/src",
+                                           "pattern":  "refund",
+                                           "name":  null,
+                                           "passed":  false
+                                       }
+                                   ]
+                    },
+                    {
+                        "id":  "payments.gateways",
+                        "category":  "Payments \u0026 Wallet",
+                        "requirement":  "Paystack, Flutterwave, Monnify, OPay, bank transfer, card, USSD, Apple Pay, Google Pay, and cash.",
+                        "status":  "PARTIAL",
+                        "passedChecks":  1,
+                        "totalChecks":  5,
+                        "checks":  [
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend/payment-service/src",
+                                           "pattern":  "Paystack",
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend/payment-service/src",
+                                           "pattern":  "Flutterwave",
+                                           "name":  null,
+                                           "passed":  false
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend/payment-service/src",
+                                           "pattern":  "Monnify",
+                                           "name":  null,
+                                           "passed":  false
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend/payment-service/src",
+                                           "pattern":  "OPay",
+                                           "name":  null,
+                                           "passed":  false
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend/payment-service/src",
+                                           "pattern":  "USSD",
+                                           "name":  null,
+                                           "passed":  false
+                                       }
+                                   ]
+                    },
+                    {
+                        "id":  "safety.sos_share_recording",
+                        "category":  "Safety",
+                        "requirement":  "SOS, trip sharing, emergency contacts, and optional trip audio recording.",
+                        "status":  "PARTIAL",
+                        "passedChecks":  1,
+                        "totalChecks":  4,
+                        "checks":  [
+                                       {
+                                           "type":  "dbTable",
+                                           "path":  "backend/database/schema.sql",
+                                           "pattern":  null,
+                                           "name":  "sos_alerts",
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "customer_app/lib",
+                                           "pattern":  "SOS",
+                                           "name":  null,
+                                           "passed":  false
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend",
+                                           "pattern":  "trip share",
+                                           "name":  null,
+                                           "passed":  false
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend",
+                                           "pattern":  "audio",
+                                           "name":  null,
+                                           "passed":  false
+                                       }
+                                   ]
+                    },
+                    {
+                        "id":  "ratings",
+                        "category":  "Safety",
+                        "requirement":  "Rider and driver ratings and reviews.",
+                        "status":  "PARTIAL",
+                        "passedChecks":  2,
+                        "totalChecks":  4,
+                        "checks":  [
+                                       {
+                                           "type":  "dbTable",
+                                           "path":  "backend/database/schema.sql",
+                                           "pattern":  null,
+                                           "name":  "ratings",
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend",
+                                           "pattern":  "rating",
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "customer_app/lib",
+                                           "pattern":  "rating",
+                                           "name":  null,
+                                           "passed":  false
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "driver_app/lib",
+                                           "pattern":  "rating",
+                                           "name":  null,
+                                           "passed":  false
+                                       }
+                                   ]
+                    },
+                    {
+                        "id":  "driver.registration_kyc",
+                        "category":  "Driver App",
+                        "requirement":  "Driver registration with NIN, BVN, license, vehicle documents, facial verification, and background check.",
+                        "status":  "PARTIAL",
+                        "passedChecks":  3,
+                        "totalChecks":  5,
+                        "checks":  [
+                                       {
+                                           "type":  "pathExists",
+                                           "path":  "backend/driver-service/src/driver/controllers/driver-kyc.controller.ts",
+                                           "pattern":  null,
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend/driver-service/src",
+                                           "pattern":  "NIN",
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend/driver-service/src",
+                                           "pattern":  "BVN",
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend/driver-service/src",
+                                           "pattern":  "license",
+                                           "name":  null,
+                                           "passed":  false
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend/driver-service/src",
+                                           "pattern":  "facial",
+                                           "name":  null,
+                                           "passed":  false
+                                       }
+                                   ]
+                    },
+                    {
+                        "id":  "driver.dashboard",
+                        "category":  "Driver App",
+                        "requirement":  "Driver dashboard: online/offline, ride requests, accept/reject, earnings, incentives, wallet, destination filter.",
+                        "status":  "PARTIAL",
+                        "passedChecks":  2,
+                        "totalChecks":  5,
+                        "checks":  [
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "driver_app/lib",
+                                           "pattern":  "online",
+                                           "name":  null,
+                                           "passed":  false
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "driver_app/lib",
+                                           "pattern":  "new_ride_request",
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "driver_app/lib",
+                                           "pattern":  "earnings",
+                                           "name":  null,
+                                           "passed":  false
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "driver_app/lib",
+                                           "pattern":  "wallet",
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "driver_app/lib",
+                                           "pattern":  "destination",
+                                           "name":  null,
+                                           "passed":  false
+                                       }
+                                   ]
+                    },
+                    {
+                        "id":  "driver.advanced_tools",
+                        "category":  "Driver App",
+                        "requirement":  "Smart queue, heat zones, Waze/Google navigation, scheduled ride acceptance, levels, bonuses, referrals.",
+                        "status":  "PARTIAL",
+                        "passedChecks":  1,
+                        "totalChecks":  5,
+                        "checks":  [
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend/dispatch-service/src",
+                                           "pattern":  "queue",
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend",
+                                           "pattern":  "heat",
+                                           "name":  null,
+                                           "passed":  false
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "driver_app/lib",
+                                           "pattern":  "Waze",
+                                           "name":  null,
+                                           "passed":  false
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "driver_app/lib",
+                                           "pattern":  "referral",
+                                           "name":  null,
+                                           "passed":  false
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "driver_app/lib",
+                                           "pattern":  "bonus",
+                                           "name":  null,
+                                           "passed":  false
+                                       }
+                                   ]
+                    },
+                    {
+                        "id":  "admin.live_ops",
+                        "category":  "Admin Dashboard",
+                        "requirement":  "Live operations panel with live map, active rides, drivers, riders, monitoring, cancel, reassign, ban.",
+                        "status":  "PARTIAL",
+                        "passedChecks":  2,
+                        "totalChecks":  5,
+                        "checks":  [
+                                       {
+                                           "type":  "pathExists",
+                                           "path":  "admin-dashboard/src/app/(dashboard)/live-operations/page.tsx",
+                                           "pattern":  null,
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "admin-dashboard/src",
+                                           "pattern":  "Live",
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "admin-dashboard/src",
+                                           "pattern":  "cancel",
+                                           "name":  null,
+                                           "passed":  false
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "admin-dashboard/src",
+                                           "pattern":  "reassign",
+                                           "name":  null,
+                                           "passed":  false
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "admin-dashboard/src",
+                                           "pattern":  "ban",
+                                           "name":  null,
+                                           "passed":  false
+                                       }
+                                   ]
+                    },
+                    {
+                        "id":  "admin.finance",
+                        "category":  "Admin Dashboard",
+                        "requirement":  "Finance dashboard: revenue, commission, driver payouts, withdrawals, refunds, tax.",
+                        "status":  "PARTIAL",
+                        "passedChecks":  2,
+                        "totalChecks":  5,
+                        "checks":  [
+                                       {
+                                           "type":  "pathExists",
+                                           "path":  "admin-dashboard/src/app/(dashboard)/finance/page.tsx",
+                                           "pattern":  null,
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "admin-dashboard/src",
+                                           "pattern":  "revenue",
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "admin-dashboard/src",
+                                           "pattern":  "commission",
+                                           "name":  null,
+                                           "passed":  false
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "admin-dashboard/src",
+                                           "pattern":  "payout",
+                                           "name":  null,
+                                           "passed":  false
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "admin-dashboard/src",
+                                           "pattern":  "refund",
+                                           "name":  null,
+                                           "passed":  false
+                                       }
+                                   ]
+                    },
+                    {
+                        "id":  "admin.kyc_support",
+                        "category":  "Admin Dashboard",
+                        "requirement":  "KYC approval, support ticketing, live support chat, disputes, call center panel.",
+                        "status":  "PARTIAL",
+                        "passedChecks":  3,
+                        "totalChecks":  4,
+                        "checks":  [
+                                       {
+                                           "type":  "pathExists",
+                                           "path":  "admin-dashboard/src/app/(dashboard)/kyc/page.tsx",
+                                           "pattern":  null,
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "dbTable",
+                                           "path":  "backend/database/schema.sql",
+                                           "pattern":  null,
+                                           "name":  "support_tickets",
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "admin-dashboard/src",
+                                           "pattern":  "dispute",
+                                           "name":  null,
+                                           "passed":  false
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend/notification-service/src",
+                                           "pattern":  "chat",
+                                           "name":  null,
+                                           "passed":  true
+                                       }
+                                   ]
+                    },
+                    {
+                        "id":  "travel.interstate",
+                        "category":  "Inter-State Travel",
+                        "requirement":  "Inter-state travel: shared/private travel, seat selection, luggage pricing, boarding points, route management, scheduled departures.",
+                        "status":  "PARTIAL",
+                        "passedChecks":  4,
+                        "totalChecks":  5,
+                        "checks":  [
+                                       {
+                                           "type":  "pathExists",
+                                           "path":  "backend/interstate-service/src/interstate/controllers/trip.controller.ts",
+                                           "pattern":  null,
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "dbTable",
+                                           "path":  "backend/database/schema.sql",
+                                           "pattern":  null,
+                                           "name":  "inter_state_routes",
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "dbTable",
+                                           "path":  "backend/database/schema.sql",
+                                           "pattern":  null,
+                                           "name":  "travel_bookings",
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend/interstate-service/src",
+                                           "pattern":  "seat",
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend/interstate-service/src",
+                                           "pattern":  "luggage",
+                                           "name":  null,
+                                           "passed":  false
+                                       }
+                                   ]
+                    },
+                    {
+                        "id":  "marketplace.bidding",
+                        "category":  "Driver Marketplace",
+                        "requirement":  "Customers can request nearby drivers and drivers can bid/offer negotiated pricing.",
+                        "status":  "PARTIAL",
+                        "passedChecks":  2,
+                        "totalChecks":  4,
+                        "checks":  [
+                                       {
+                                           "type":  "dbTable",
+                                           "path":  "backend/database/schema.sql",
+                                           "pattern":  null,
+                                           "name":  "ride_bids",
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend",
+                                           "pattern":  "bid",
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "customer_app/lib",
+                                           "pattern":  "driver marketplace",
+                                           "name":  null,
+                                           "passed":  false
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "driver_app/lib",
+                                           "pattern":  "bid",
+                                           "name":  null,
+                                           "passed":  false
+                                       }
+                                   ]
+                    },
+                    {
+                        "id":  "realtime.socket_redis",
+                        "category":  "Realtime",
+                        "requirement":  "Socket.IO realtime system with Redis Pub/Sub for tracking, chat, ride status, and notifications.",
+                        "status":  "PASS",
+                        "passedChecks":  4,
+                        "totalChecks":  4,
+                        "checks":  [
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend",
+                                           "pattern":  "Socket",
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend",
+                                           "pattern":  "Redis",
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend",
+                                           "pattern":  "pub",
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend/notification-service/src",
+                                           "pattern":  "chat",
+                                           "name":  null,
+                                           "passed":  true
+                                       }
+                                   ]
+                    },
+                    {
+                        "id":  "ai.dispatch",
+                        "category":  "AI Systems",
+                        "requirement":  "AI dispatch matches nearest, best-rated, lowest ETA, lowest cancellation risk drivers.",
+                        "status":  "PARTIAL",
+                        "passedChecks":  3,
+                        "totalChecks":  5,
+                        "checks":  [
+                                       {
+                                           "type":  "pathExists",
+                                           "path":  "backend/dispatch-service/src/dispatch/services/ai-matching.service.ts",
+                                           "pattern":  null,
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend/dispatch-service/src",
+                                           "pattern":  "rating",
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend/dispatch-service/src",
+                                           "pattern":  "distance",
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend/dispatch-service/src",
+                                           "pattern":  "ETA",
+                                           "name":  null,
+                                           "passed":  false
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend/dispatch-service/src",
+                                           "pattern":  "cancellation",
+                                           "name":  null,
+                                           "passed":  false
+                                       }
+                                   ]
+                    },
+                    {
+                        "id":  "ai.surge_fraud_prediction",
+                        "category":  "AI Systems",
+                        "requirement":  "AI surge pricing, demand prediction, fraud detection, GPS spoofing detection, wallet fraud detection.",
+                        "status":  "PARTIAL",
+                        "passedChecks":  1,
+                        "totalChecks":  5,
+                        "checks":  [
+                                       {
+                                           "type":  "pathExists",
+                                           "path":  "backend/fraud-service/src/fraud/services/trip-analysis.service.ts",
+                                           "pattern":  null,
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend/analytics-service/src",
+                                           "pattern":  "prediction",
+                                           "name":  null,
+                                           "passed":  false
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend/fraud-service/src",
+                                           "pattern":  "spoof",
+                                           "name":  null,
+                                           "passed":  false
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend/fraud-service/src",
+                                           "pattern":  "wallet",
+                                           "name":  null,
+                                           "passed":  false
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend/ride-service/src",
+                                           "pattern":  "weather",
+                                           "name":  null,
+                                           "passed":  false
+                                       }
+                                   ]
+                    },
+                    {
+                        "id":  "database.complete_schema",
+                        "category":  "Database",
+                        "requirement":  "PostgreSQL schema includes all required production tables, indexes, foreign keys, and constraints.",
+                        "status":  "PASS",
+                        "passedChecks":  18,
+                        "totalChecks":  18,
+                        "checks":  [
+                                       {
+                                           "type":  "dbTable",
+                                           "path":  "backend/database/schema.sql",
+                                           "pattern":  null,
+                                           "name":  "users",
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "dbTable",
+                                           "path":  "backend/database/schema.sql",
+                                           "pattern":  null,
+                                           "name":  "drivers",
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "dbTable",
+                                           "path":  "backend/database/schema.sql",
+                                           "pattern":  null,
+                                           "name":  "vehicles",
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "dbTable",
+                                           "path":  "backend/database/schema.sql",
+                                           "pattern":  null,
+                                           "name":  "rides",
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "dbTable",
+                                           "path":  "backend/database/schema.sql",
+                                           "pattern":  null,
+                                           "name":  "ride_stops",
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "dbTable",
+                                           "path":  "backend/database/schema.sql",
+                                           "pattern":  null,
+                                           "name":  "scheduled_rides",
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "dbTable",
+                                           "path":  "backend/database/schema.sql",
+                                           "pattern":  null,
+                                           "name":  "wallets",
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "dbTable",
+                                           "path":  "backend/database/schema.sql",
+                                           "pattern":  null,
+                                           "name":  "wallet_transactions",
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "dbTable",
+                                           "path":  "backend/database/schema.sql",
+                                           "pattern":  null,
+                                           "name":  "payments",
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "dbTable",
+                                           "path":  "backend/database/schema.sql",
+                                           "pattern":  null,
+                                           "name":  "driver_documents",
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "dbTable",
+                                           "path":  "backend/database/schema.sql",
+                                           "pattern":  null,
+                                           "name":  "ratings",
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "dbTable",
+                                           "path":  "backend/database/schema.sql",
+                                           "pattern":  null,
+                                           "name":  "notifications",
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "dbTable",
+                                           "path":  "backend/database/schema.sql",
+                                           "pattern":  null,
+                                           "name":  "support_tickets",
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "dbTable",
+                                           "path":  "backend/database/schema.sql",
+                                           "pattern":  null,
+                                           "name":  "admin_users",
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "dbTable",
+                                           "path":  "backend/database/schema.sql",
+                                           "pattern":  null,
+                                           "name":  "promo_codes",
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "dbTable",
+                                           "path":  "backend/database/schema.sql",
+                                           "pattern":  null,
+                                           "name":  "inter_state_routes",
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "dbTable",
+                                           "path":  "backend/database/schema.sql",
+                                           "pattern":  null,
+                                           "name":  "travel_bookings",
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "dbTable",
+                                           "path":  "backend/database/schema.sql",
+                                           "pattern":  null,
+                                           "name":  "ride_bids",
+                                           "passed":  true
+                                       }
+                                   ]
+                    },
+                    {
+                        "id":  "api.swagger_validation",
+                        "category":  "API",
+                        "requirement":  "REST APIs are versioned, documented with Swagger, validated with DTOs, and have structured error handling.",
+                        "status":  "PARTIAL",
+                        "passedChecks":  2,
+                        "totalChecks":  4,
+                        "checks":  [
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend",
+                                           "pattern":  "SwaggerModule",
+                                           "name":  null,
+                                           "passed":  false
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend",
+                                           "pattern":  "ValidationPipe",
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend",
+                                           "pattern":  "/v1",
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend",
+                                           "pattern":  "ExceptionFilter",
+                                           "name":  null,
+                                           "passed":  false
+                                       }
+                                   ]
+                    },
+                    {
+                        "id":  "devops.docker",
+                        "category":  "DevOps",
+                        "requirement":  "Docker Compose runs core services with Postgres and Redis.",
+                        "status":  "PASS",
+                        "passedChecks":  5,
+                        "totalChecks":  5,
+                        "checks":  [
+                                       {
+                                           "type":  "pathExists",
+                                           "path":  "backend/docker-compose.yml",
+                                           "pattern":  null,
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "dockerService",
+                                           "path":  "backend/docker-compose.yml",
+                                           "pattern":  null,
+                                           "name":  "postgres",
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "dockerService",
+                                           "path":  "backend/docker-compose.yml",
+                                           "pattern":  null,
+                                           "name":  "redis",
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "dockerService",
+                                           "path":  "backend/docker-compose.yml",
+                                           "pattern":  null,
+                                           "name":  "auth-service",
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "dockerService",
+                                           "path":  "backend/docker-compose.yml",
+                                           "pattern":  null,
+                                           "name":  "ride-service",
+                                           "passed":  true
+                                       }
+                                   ]
+                    },
+                    {
+                        "id":  "devops.k8s_ci_monitoring",
+                        "category":  "DevOps",
+                        "requirement":  "Kubernetes, NGINX, GitHub Actions, autoscaling, monitoring, logging, backups.",
+                        "status":  "PARTIAL",
+                        "passedChecks":  4,
+                        "totalChecks":  6,
+                        "checks":  [
+                                       {
+                                           "type":  "pathExists",
+                                           "path":  "k8s",
+                                           "pattern":  null,
+                                           "name":  null,
+                                           "passed":  false
+                                       },
+                                       {
+                                           "type":  "pathExists",
+                                           "path":  ".github/workflows",
+                                           "pattern":  null,
+                                           "name":  null,
+                                           "passed":  false
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  ".",
+                                           "pattern":  "nginx",
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  ".",
+                                           "pattern":  "prometheus",
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  ".",
+                                           "pattern":  "grafana",
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  ".",
+                                           "pattern":  "backup",
+                                           "name":  null,
+                                           "passed":  true
+                                       }
+                                   ]
+                    },
+                    {
+                        "id":  "testing.full_suite",
+                        "category":  "Testing",
+                        "requirement":  "Unit, integration, E2E, API, and load tests exist.",
+                        "status":  "PARTIAL",
+                        "passedChecks":  5,
+                        "totalChecks":  6,
+                        "checks":  [
+                                       {
+                                           "type":  "pathExists",
+                                           "path":  "customer_app/test",
+                                           "pattern":  null,
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "pathExists",
+                                           "path":  "driver_app/test",
+                                           "pattern":  null,
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  "backend",
+                                           "pattern":  ".spec.ts",
+                                           "name":  null,
+                                           "passed":  false
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  ".",
+                                           "pattern":  "supertest",
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  ".",
+                                           "pattern":  "cypress",
+                                           "name":  null,
+                                           "passed":  true
+                                       },
+                                       {
+                                           "type":  "textSearch",
+                                           "path":  ".",
+                                           "pattern":  "k6",
+                                           "name":  null,
+                                           "passed":  true
+                                       }
+                                   ]
+                    }
+                ]
+}
