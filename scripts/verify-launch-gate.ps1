@@ -32,8 +32,10 @@ function Invoke-LaunchCommand {
   try {
     Write-Host ""
     Write-Host "Running $Name"
+    $global:LASTEXITCODE = 0
     & $Command | Out-Host
-    $exitCode = $LASTEXITCODE
+    $exitCode = $global:LASTEXITCODE
+    if (-not $?) { $exitCode = 1 }
     $status = if ($exitCode -eq 0) { "PASS" } else { "FAIL" }
 
     return [pscustomobject]@{

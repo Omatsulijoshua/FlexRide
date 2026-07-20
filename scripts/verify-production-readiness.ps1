@@ -21,29 +21,53 @@ function Resolve-ProjectPath {
   return Join-Path $root $RelativePath
 }
 
+$global:TextTargetCache = @{}
 function Read-TextTarget {
   param([string]$RelativePath)
   $target = Resolve-ProjectPath $RelativePath
+  if ($global:TextTargetCache.ContainsKey($target)) {
+    return $global:TextTargetCache[$target]
+  }
+
   if (-not (Test-Path -LiteralPath $target)) {
+    $global:TextTargetCache[$target] = ""
     return ""
   }
 
   $item = Get-Item -LiteralPath $target
   if ($item.PSIsContainer) {
-    $files = Get-ChildItem -LiteralPath $target -Recurse -File -ErrorAction SilentlyContinue |
-      Where-Object {
-        $_.FullName -notmatch "\\(node_modules|build|\.dart_tool|ephemeral)\\" -and
-        $_.Extension -in @(".ts", ".tsx", ".js", ".jsx", ".dart", ".sql", ".yaml", ".yml", ".json", ".md", ".css", ".html", ".xml", ".kt", ".swift")
+    $files = New-Object System.Collections.Generic.List[string]
+    $queue = New-Object System.Collections.Generic.Queue[string]
+    $queue.Enqueue($target)
+    while ($queue.Count -gt 0) {
+      $current = $queue.Dequeue()
+      $subItems = Get-ChildItem -LiteralPath $current -ErrorAction SilentlyContinue
+      foreach ($subItem in $subItems) {
+        if ($subItem.PSIsContainer) {
+          if ($subItem.Name -notmatch "^(node_modules|build|\.dart_tool|ephemeral|\.git)$") {
+            $queue.Enqueue($subItem.FullName)
+          }
+        } else {
+          if ($subItem.Extension -in @(".ts", ".tsx", ".js", ".jsx", ".dart", ".sql", ".yaml", ".yml", ".json", ".md", ".css", ".html", ".xml", ".kt", ".swift")) {
+            [void]$files.Add($subItem.FullName)
+          }
+        }
       }
-    $chunks = foreach ($file in $files) {
-      try { Get-Content -LiteralPath $file.FullName -Raw -ErrorAction Stop } catch { "" }
     }
-    return ($chunks -join "`n")
+    $chunks = foreach ($file in $files) {
+      try { Get-Content -LiteralPath $file -Raw -ErrorAction Stop } catch { "" }
+    }
+    $result = ($chunks -join "`n")
+    $global:TextTargetCache[$target] = $result
+    return $result
   }
 
   try {
-    return Get-Content -LiteralPath $target -Raw -ErrorAction Stop
+    $result = Get-Content -LiteralPath $target -Raw -ErrorAction Stop
+    $global:TextTargetCache[$target] = $result
+    return $result
   } catch {
+    $global:TextTargetCache[$target] = ""
     return ""
   }
 }
@@ -63,8 +87,13 @@ function Test-Check {
       if (-not (Test-Path -LiteralPath $target)) { return $false }
       $item = Get-Item -LiteralPath $target
       if ($item.PSIsContainer) {
-        & rg --fixed-strings --quiet --glob '!**/node_modules/**' --glob '!**/build/**' --glob '!**/.dart_tool/**' --glob '!**/ephemeral/**' -- ([string]$Check.pattern) $target
-        return $LASTEXITCODE -eq 0
+        if (Get-Command rg -ErrorAction SilentlyContinue) {
+          & rg --fixed-strings --quiet --glob '!**/node_modules/**' --glob '!**/build/**' --glob '!**/.dart_tool/**' --glob '!**/ephemeral/**' -- ([string]$Check.pattern) $target
+          return $LASTEXITCODE -eq 0
+        } else {
+          $text = Read-TextTarget $path
+          return $text -match [regex]::Escape([string]$Check.pattern)
+        }
       }
       $text = Read-TextTarget $path
       return $text -match [regex]::Escape([string]$Check.pattern)
@@ -73,8 +102,14 @@ function Test-Check {
       if (-not (Test-Path -LiteralPath $target)) { return $false }
       $item = Get-Item -LiteralPath $target
       if ($item.PSIsContainer) {
-        & rg --fixed-strings --quiet --glob '!**/node_modules/**' --glob '!**/build/**' --glob '!**/.dart_tool/**' --glob '!**/ephemeral/**' -- ([string]$Check.pattern) $target
-        return $LASTEXITCODE -ne 0
+        if (Get-Command rg -ErrorAction SilentlyContinue) {
+          & rg --fixed-strings --quiet --glob '!**/node_modules/**' --glob '!**/build/**' --glob '!**/.dart_tool/**' --glob '!**/ephemeral/**' -- ([string]$Check.pattern) $target
+          return $LASTEXITCODE -ne 0
+        } else {
+          $text = Read-TextTarget $path
+          if ([string]::IsNullOrEmpty($text)) { return $false }
+          return -not ($text -match [regex]::Escape([string]$Check.pattern))
+        }
       }
       $text = Read-TextTarget $path
       if ([string]::IsNullOrEmpty($text)) { return $false }

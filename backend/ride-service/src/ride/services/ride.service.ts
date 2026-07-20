@@ -21,6 +21,16 @@ export class RideService {
     }
 
     const estimation = this.pricingService.calculateFare(createDto);
+
+    // Bidding Logic
+    if (createDto.offeredFare !== undefined) {
+      const minAllowedFare = estimation.totalFare * 0.5;
+      if (createDto.offeredFare < minAllowedFare) {
+        throw new BadRequestException(`Offered fare cannot be less than 50% of the calculated distance fare (₦${minAllowedFare})`);
+      }
+      estimation.totalFare = createDto.offeredFare;
+    }
+
     const newRide = await this.rideRepository.createRide(createDto, estimation.totalFare);
     
     const dispatchUrl = process.env.DISPATCH_SERVICE_URL || 'http://dispatch-service:3007';

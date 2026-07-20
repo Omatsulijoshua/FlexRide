@@ -46,4 +46,8 @@ export class CreateRideDto {
   @IsNumber()
   @Min(1)
   rentalHours?: number;
+
+  @IsOptional()
+  @IsNumber()
+  offeredFare?: number;
 }
