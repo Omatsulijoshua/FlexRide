@@ -13,8 +13,8 @@ class SocketClient {
 
   void connect() {
     // The dispatch-service is on port 3007
-    // Using 10.0.2.2 for Android emulator localhost loopback
-    const String socketUrl = 'http://10.0.2.2:3007';
+    // Using production dispatch service WebSocket
+    const String socketUrl = 'https://flexride-dispatch.onrender.com';
 
     socket = io.io(socketUrl, <String, dynamic>{
       'transports': ['websocket'],

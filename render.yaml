@@ -1,0 +1,75 @@
+services:
+  # Shared Redis Instance for Dispatching & Caching
+  - type: redis
+    name: flexride-redis
+    ipAllowList: [] # internal only
+    plan: free
+
+  # API Gateway
+  - type: web
+    name: api-gateway
+    env: node
+    rootDir: backend/api-gateway
+    buildCommand: npm install && npm run build
+    startCommand: npm run start:prod
+    envVars:
+      - key: PORT
+        value: 3000
+      - key: REDIS_URL
+        fromService:
+          type: redis
+          name: flexride-redis
+          property: connectionString
+      - key: DATABASE_URL
+        value: postgresql://neondb_owner:npg_MRwBm9xUyge7@ep-steep-grass-awdcuna6-pooler.c-12.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require
+
+  # Auth Service
+  - type: web
+    name: auth-service
+    env: node
+    rootDir: backend/auth-service
+    buildCommand: npm install && npm run build
+    startCommand: npm run start:prod
+    envVars:
+      - key: PORT
+        value: 3001
+      - key: DATABASE_URL
+        value: postgresql://neondb_owner:npg_MRwBm9xUyge7@ep-steep-grass-awdcuna6-pooler.c-12.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require
+      - key: JWT_SECRET
+        value: production_flexride_secret_key
+      - key: JWT_REFRESH_SECRET
+        value: production_flexride_refresh_key
+
+  # Ride Service
+  - type: web
+    name: ride-service
+    env: node
+    rootDir: backend/ride-service
+    buildCommand: npm install && npm run build
+    startCommand: npm run start:prod
+    envVars:
+      - key: PORT
+        value: 3004
+      - key: DATABASE_URL
+        value: postgresql://neondb_owner:npg_MRwBm9xUyge7@ep-steep-grass-awdcuna6-pooler.c-12.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require
+      - key: DISPATCH_SERVICE_URL
+        # We will use the internal URL provided by Render
+        value: http://dispatch-service:3007
+
+  # Dispatch Service (WebSocket Gateway)
+  - type: web
+    name: dispatch-service
+    env: node
+    rootDir: backend/dispatch-service
+    buildCommand: npm install && npm run build
+    startCommand: npm run start:prod
+    envVars:
+      - key: PORT
+        value: 3007
+      - key: REDIS_URL
+        fromService:
+          type: redis
+          name: flexride-redis
+          property: connectionString
+      - key: DATABASE_URL
+        value: postgresql://neondb_owner:npg_MRwBm9xUyge7@ep-steep-grass-awdcuna6-pooler.c-12.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require
