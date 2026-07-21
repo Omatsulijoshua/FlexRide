@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-brand: #FFB800;
+  --color-brand-dark: #E5A600;
+  --color-brand-light: #FFC940;
+  --color-background: #ffffff;
+  --color-foreground: #111827;
+  --color-muted: #6B7280;
+  --color-dark: #1A1A1A;
+  --color-dark-card: #222222;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+}
