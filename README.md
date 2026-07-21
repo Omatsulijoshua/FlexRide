@@ -56,7 +56,18 @@ Use these credentials to sign in to the **Admin Dashboard** at `http://localhost
 * **Default Password**: `Jos@56567`
 * **Role**: `ADMIN` (with full system `["*"]` permissions)
 
-### 2. Mobile App Authentication (Customers & Drivers)
+### 2. Seeded Test Accounts (Customers & Drivers)
+If you want to log in using standard email and password endpoints or test specific roles, use these pre-seeded test accounts:
+* **Customer Test Account**:
+  * **Email**: `customer@flexride.com`
+  * **Password**: `Password123`
+  * **Phone**: `1234567890`
+* **Driver Test Account**:
+  * **Email**: `driver@flexride.com`
+  * **Password**: `Password123`
+  * **Phone**: `1234567891`
+
+### 3. Mobile App Authentication (Customers & Drivers)
 Authentication in the mobile apps uses **Phone OTP**:
 1. Request an OTP by submitting a phone number.
 2. In **development/testing** environments, the OTP is returned directly in the response body payload as `devOtp` (no real SMS charges incurred).
