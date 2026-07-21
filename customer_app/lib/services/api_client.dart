@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ApiClient {
-  static const String baseUrl = 'https://flexride-api.onrender.com'; // Production API Gateway
+  static const String baseUrl = 'https://flexride-backend.onrender.com'; // Production API Gateway
   final Dio _dio = Dio(BaseOptions(baseUrl: baseUrl));
 
   ApiClient() {
