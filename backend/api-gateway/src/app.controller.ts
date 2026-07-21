@@ -1,10 +1,9 @@
 import { Controller, All, Req, Res } from '@nestjs/common';
-import { Request, Response } from 'express';
 
 @Controller()
 export class AppController {
   @All('*')
-  async proxy(@Req() req: Request, @Res() res: Response) {
+  async proxy(@Req() req: any, @Res() res: any) {
     const path = req.path;
     const cleanPath = path.replace(/^\/v1/, '');
 
@@ -59,7 +58,7 @@ export class AppController {
       const headers = new Headers();
       Object.entries(req.headers).forEach(([key, val]) => {
         if (val) {
-          headers.append(key, Array.isArray(val) ? val.join(', ') : val);
+          headers.append(key, String(Array.isArray(val) ? val.join(', ') : val));
         }
       });
       headers.set('host', `${targetHost}:${targetPort}`);
