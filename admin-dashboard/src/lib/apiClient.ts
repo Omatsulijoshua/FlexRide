@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // API Gateway Port for the backend
-const BASE_URL = 'https://flexride-backend.onrender.com';
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
 
 export const apiClient = axios.create({
   baseURL: BASE_URL,
