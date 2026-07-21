@@ -17,5 +17,6 @@ jobs:
         with:
           channel: stable
       - name: Production readiness report
-        shell: pwsh
-        run: ./scripts/verify-production-readiness.ps1 -Json > reports/production-readiness-ci.json
+        run: |
+          mkdir -p reports
+          pwsh ./scripts/verify-production-readiness.ps1 -Json > reports/production-readiness-ci.json
