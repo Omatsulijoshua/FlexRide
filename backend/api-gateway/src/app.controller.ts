@@ -64,6 +64,11 @@ export class AppController {
 
     const queryParams = new URLSearchParams(req.query as any).toString();
     const queryString = queryParams ? `?${queryParams}` : '';
+    
+    if (req.headers['x-target-path']) {
+      rewrittenPath = String(req.headers['x-target-path']);
+    }
+    
     const targetUrl = `http://${targetHost}:${targetPort}${rewrittenPath}${queryString}`;
 
     try {
