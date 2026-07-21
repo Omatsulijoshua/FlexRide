@@ -12,47 +12,59 @@ export class AppController {
 
     let targetPort = 3000;
     let targetHost = 'localhost';
+    let rewrittenPath = path;
 
     if (cleanPath.startsWith('/auth')) {
       targetPort = 3001;
       targetHost = process.env.AUTH_SERVICE_HOST || defaultHost('auth-service');
+      rewrittenPath = '/v1/v1' + cleanPath;
     } else if (cleanPath.startsWith('/users')) {
       targetPort = 3002;
       targetHost = process.env.USER_SERVICE_HOST || defaultHost('user-service');
+      rewrittenPath = cleanPath;
     } else if (cleanPath.startsWith('/driver')) {
       targetPort = 3003;
       targetHost = process.env.DRIVER_SERVICE_HOST || defaultHost('driver-service');
+      rewrittenPath = cleanPath;
     } else if (cleanPath.startsWith('/rides')) {
       targetPort = 3004;
       targetHost = process.env.RIDE_SERVICE_HOST || defaultHost('ride-service');
+      rewrittenPath = cleanPath;
     } else if (cleanPath.startsWith('/tracking')) {
       targetPort = 3005;
       targetHost = process.env.TRACKING_SERVICE_HOST || defaultHost('tracking-service');
+      rewrittenPath = cleanPath;
     } else if (cleanPath.startsWith('/payment') || cleanPath.startsWith('/wallet')) {
       targetPort = 3006;
       targetHost = process.env.PAYMENT_SERVICE_HOST || defaultHost('payment-service');
+      rewrittenPath = cleanPath;
     } else if (cleanPath.startsWith('/dispatch')) {
       targetPort = 3007;
       targetHost = process.env.DISPATCH_SERVICE_HOST || defaultHost('dispatch-service');
+      rewrittenPath = cleanPath;
     } else if (cleanPath.startsWith('/interstate')) {
       targetPort = 3008;
       targetHost = process.env.INTERSTATE_SERVICE_HOST || defaultHost('interstate-service');
+      rewrittenPath = cleanPath;
     } else if (cleanPath.startsWith('/notifications')) {
       targetPort = 3009;
       targetHost = process.env.NOTIFICATION_SERVICE_HOST || defaultHost('notification-service');
+      rewrittenPath = cleanPath;
     } else if (cleanPath.startsWith('/analytics')) {
       targetPort = 3011;
       targetHost = process.env.ANALYTICS_SERVICE_HOST || defaultHost('analytics-service');
+      rewrittenPath = cleanPath;
     } else if (cleanPath.startsWith('/fraud')) {
       targetPort = 3012;
       targetHost = process.env.FRAUD_SERVICE_HOST || defaultHost('fraud-service');
+      rewrittenPath = cleanPath;
     } else {
       return res.status(200).send('Server is Running');
     }
 
     const queryParams = new URLSearchParams(req.query as any).toString();
     const queryString = queryParams ? `?${queryParams}` : '';
-    const targetUrl = `http://${targetHost}:${targetPort}${path}${queryString}`;
+    const targetUrl = `http://${targetHost}:${targetPort}${rewrittenPath}${queryString}`;
 
     try {
       const headers = new Headers();
